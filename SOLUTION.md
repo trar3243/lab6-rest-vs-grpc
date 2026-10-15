@@ -1,16 +1,18 @@
+# Lab 6 Solution - REST vs gRPC
+
+All times are milliseconds per operation.
 
 |  Method 	| Local  	| Same-Zone  	|  Different Region 	|
-|---	|---	|---	|---	|---	|
-|   REST add	|   	|   	|  	|
-|   gRPC add	|   	|   	|    	|
-|   REST rawimg	|   	|   	|   	|
-|   gRPC rawimg	|       |   	|   	|
-|   REST dotproduct	|   	|   	|  	|
-|   gRPC dotproduct	|   	|   	|    	|
-|   REST jsonimg	|   	|   	|   	|
-|   gRPC jsonimg	|       |   	|   	|
-|   PING        |       |      |       |
+|---	|---	|---	|---	|
+|   REST add	| 2.65 | 3.51 | 321.57 |
+|   gRPC add	| 0.83 | 1.29 | 164.31 |
+|   REST rawimg	| 5.25 | 8.10 | 1284.75 |
+|   gRPC rawimg	| 13.39 | 12.01 | 205.43 |
+|   REST dotproduct	| 3.30 | 4.00 | 322.18 |
+|   gRPC dotproduct	| 0.91 | 1.37 | 146.23 |
+|   REST jsonimg	| 28.53 | 31.31 | 1421.90 |
+|   gRPC jsonimg	| 29.03 | 31.11 | 228.45 |
+|   PING        | 0.052 | 0.462 | 141.177 |
 
-You should measure the basic latency  using the `ping` command - this can be construed to be the latency without any RPC or python overhead.
+## Observations
 
-You should examine your results and provide a short paragraph with your observations of the performance difference between REST and gRPC. You should explicitly comment on the role that network latency plays -- it's useful to know that REST makes a new TCP connection for each query while gRPC makes a single TCP connection that is used for all the queries.
