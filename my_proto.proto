@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+message addRequest {
+  int32 a = 1;
+  int32 b = 2;
+};
+message addResponse {
+  int32 c = 1;
+};
+
+message rawImageRequest {
+  bytes img=1;
+};
+message jsonImageMsg {
+  string img=1;
+};
+message imageResponse {
+  int32 width=1;
+  int32 height=2;
+};
+
+message dotProductRequest {
+  repeated float a = 1;
+  repeated float b = 2;
+};
+message dotProductResponse {
+  float dotproduct = 1;
+};
+
+service Lab6 {
+  rpc Add(addRequest) returns (addResponse) {}
+  rpc RawImage(rawImageRequest) returns (imageResponse) {}
+  rpc DotProduct(dotProductRequest) returns (dotProductResponse) {}
+  rpc JsonImage(jsonImageMsg) returns (imageResponse) {}
+}
